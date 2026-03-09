@@ -1,0 +1,43 @@
+
+//main app folder - 
+
+#urls file
+from django.contrib import admin
+from django.urls import path,include
+
+urlpatterns = [
+    # this means connects to the calc folder
+    path('',include('calc.urls')),  
+    path('admin/', admin.site.urls),
+]
+
+#settings file
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+         in dirs we asign as like :  [os.path.join(BASE_DIR,'templates')],  //template is a folder we just use dtl() means we just dynamic the html
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+
+//calc folder means(controller function)
+#urls file
+# handle the mapping for example : /home
+urlpatterns=[
+    path('home',views.home,name='home')
+]
+
+#views file
+# Create your views here.
+def home(request):
+   # return HttpResponse("Hello world")
+   return render(request,'home.html',{'name':'Sanket'})  //we use to render the html
