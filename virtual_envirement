@@ -1,0 +1,25 @@
+
+problem is suppose i have 6 projects - project1 project2 project3 project4 project5 project6
+project1(python 4.1 pillow 7.1) require to run perfectly
+project2(python 3.1 pillow 6.1) require to run perfectly
+but for diff version we see errors in depedencies so we create vitual env means every project has own version in there env
+open git bash file --
+  pip freeze  -- see install dependencies
+  pip install virtualenv  -- install virtual env in my system
+  python -m venv env -- It creates a separate isolated Python environment for your project.
+    source env/Scripts/activate  ||  source venv/bin/activate(linux/mac)  --  activate it
+    pip install djangp   -- it install latest version of django
+
+    if we do: deactive -- it off the virtual envirement
+
+create a project --
+django-admin startprojct myapp .    //. means the project created on root folder
+
+python manage.py runserver    //run the server
+
+folder structure --
+    init.py   --  python intrepeter means this directory is no more simple folder its a python package.if we delete it we can not import one package to another
+    wsgi.py   -- it use for deploying our application on our production server like apache,nginx
+    asgi.py   -- 
+    urls.py  -- universal resource locator -- if user come this url direct them to this imahe
+    settings.py  -- all configuaration
